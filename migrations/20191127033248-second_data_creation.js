@@ -12,9 +12,6 @@ module.exports = {
     return queryInterface.bulkInsert('sayings', [
       { saying: "With friends like me who needs enemies?" },
       { saying: "WHY DO I HAVE A MAN CHILD?! LIAM YOU CONSUME MY SALARY!!" },
-      { saying: "" },
-      { saying: "" },
-      { saying: "" },
     ])
   },
 
@@ -26,13 +23,9 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
-    return queryInterface.deleteInsert('sayings', [
-      { saying: "." },
-      { saying: "ooh Sara, my love, my pet, my paramore, my nemesis." },
-      { saying: "I forgot to put the beef stew away!  I am PORKED." },
-      { saying: "Goff is a child, Laugh out Loud." },
-      { saying: "No beers for me, i prefer a crisp cider" },
-      { saying: "The greatest show on turf? Marshall Faulk? Kurt Warner? isaac brruce? ORLANDO PACE! " },
+    return queryInterface.bulkDelete('sayings', [
+      { saying: "With friends like me who needs enemies?" },
+      { saying: "WHY DO I HAVE A MAN CHILD?! LIAM YOU CONSUME MY SALARY!!" },
     ])
-  },
-};
+  }
+}
