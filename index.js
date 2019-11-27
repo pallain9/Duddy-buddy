@@ -11,32 +11,19 @@ app.get('/sayings', async (request, response) => {
     response.send(saying)
 })
 
-app.get('/sayings/:id', async (request, response) => {
-    const Op = Sequelize.Op
-    const matchingTeam = await models.Sayings.findAll({
-        where: {
-            [Op.or]: [{ id: request.params.id }, { abbreviation: request.params.id }]
-        }
-    })
-    if (matchingTeam.length) {
-        response.send(matchingTeam)
-    } else {
-        response.sendStatus(404)
-    }
-})
 
 app.use(bodyParser.json())
 
 app.post('/sayings', async (request, response) => {
-    const { location, mascot, abbreviation, conference, division } = request.body
-    if (!location || !mascot || !abbreviation || !conference || !division) {
-        response.status(400).send('The following fields are required: location, mascot, abbreviation, conference, division')
+    const saying = request.body
+    if (!saying) {
+        response.status(400).send('The following fields is required: saying')
     }
 
 
-    const newTeam = await models.Sayings.create({ location, mascot, abbreviation, conference, division })
+    const newSaying = await models.Sayings.create(saying)
 
-    response.sendStatus(201).send(newTeam)
+    response.sendStatus(201).send(newSaying)
 })
 
 

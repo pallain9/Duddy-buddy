@@ -1,8 +1,8 @@
 module.exports = {
     development: {
-        host: 'localhost',
+        host: 'mysql.chf9h2xzhwel.us-east-1.rds.amazonaws.com',
         database: 'DuddyBuddy',
-        username: 'root',
+        username: 'pallain',
         password: 'Brayden9!',
         dialect: 'mysql',
     }
